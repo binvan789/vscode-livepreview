@@ -17,10 +17,7 @@ import { PathUtil } from '../utils/pathUtil';
 import { BrowserPreview } from './browserPreview';
 import { Connection } from '../connectionInfo/connection';
 import { EndpointManager } from '../infoManagers/endpointManager';
-import * as nls from 'vscode-nls';
 import { IOpenFileOptions } from '../manager';
-
-const localize = nls.loadMessageBundle();
 
 /**
  * PreviewManager` is a singleton that handles the logic of opening the embedded preview.
@@ -151,8 +148,7 @@ export class PreviewManager extends Disposable {
 		) {
 			vscode.window
 				.showWarningMessage(
-					localize(
-						'notPartOfWorkspace',
+					vscode.l10n.t(
 						'Previewing a file that is not a child of the server root. To see fully correct relative file links, please open a workspace at the project root.'
 					),
 					DONT_SHOW_AGAIN
